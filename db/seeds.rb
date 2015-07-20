@@ -6,10 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Product.delete_all
-10.times{
-Product.create!(title: 'Programing Ruby on Rails',
-			description:%{<p>It is a new book about Ruby on Rails 
-				Programing</p>},
+20.times{
+	  title  = Faker::Lorem.sentence(3)
+    description = Faker::Lorem.paragraph(4, false, 6)    
+    price = Faker::Commerce.price
+Product.create!(title: title,
+			description:description,
 			image_url: 'ruby.png',
-			price: 45.6)
+			price: price)
 }
